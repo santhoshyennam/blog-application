@@ -1,0 +1,44 @@
+
+Database name: blog_application
+
+SQL Queries:
+
+
+create database blog_application;
+Use blog_application;
+
+create table users(
+   id INT NOT NULL AUTO_INCREMENT,
+   username VARCHAR(100) NOT NULL,
+   password VARCHAR(100) NOT NULL,
+   isAdmin VARCHAR(5) NOT NULL,
+   creation_date DATETIME NOT NULL, 
+   email VARCHAR(40) NOT NULL,
+   PRIMARY KEY ( id )
+);
+
+
+ALTER TABLE users
+ADD UNIQUE(email);
+
+
+create table blogs(
+   id INT NOT NULL AUTO_INCREMENT,
+   title VARCHAR(100) NOT NULL,
+   description VARCHAR(6500) NOT NULL,
+   user_id INT NOT NULL,
+   creation_date DATETIME NOT NULL, 
+   PRIMARY KEY ( id ),
+   FOREIGN KEY (user_id) references users(id)
+);
+
+create table contacts(
+   id INT NOT NULL AUTO_INCREMENT,
+   name VARCHAR(100) NOT NULL,
+   email VARCHAR(100) NOT NULL,
+   subject VARCHAR(6500) NOT NULL,
+   creation_date DATETIME NULL, 
+   PRIMARY KEY ( id )
+);
+
+As sql is case insensitive, I haven't followed the capital letters as we followed in class. 
